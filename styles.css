@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    font-family: 'Poppins', sans-serif;
+}
+
+.topo{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    height: 100px;
+}
+
+.banner{
+    display: flex;
+}
+
+.banner img{
+    width: 100%;
+}
+
+.barra-de-pesquisa {
+    margin: 20px 0;
+    text-align: center;
+    position: relative; /* Necessário para posicionar o ícone dentro do container */
+}
+
+input::placeholder {
+    color: white;
+    opacity: 1; /* Garante que a cor seja visível */
+}
+
+.barra-de-pesquisa input {
+    width: 50%;
+    padding: 10px 40px 10px 10px; /* Espaço para o ícone na direita */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+.barra-de-pesquisa i {
+    position: absolute;
+    right: 25%; /* Ajusta a posição com base na largura do input */
+    padding-right: 10px;
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    color: rgb(255, 255, 255); /* Cor do ícone */
+    font-size: 18px;
+    pointer-events: none; /* Ícone não interfere na interação do campo */
+}
+
+.corpo-produtos{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.linha{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.texto{
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    margin: 0 auto 80px;
+    position: relative;
+}
+
+.texto::after{
+    content: '';
+    background-color: rgb(30, 255, 0);
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.coluna{
+    flex-basis: 25%;
+    min-width: 200px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.coluna img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+p{
+    color: white;
+    font-weight: bold ;
+    font-size: 25px;
+    text-align: center;
+}
+
+h4{
+    color: gray;
+    font-weight: normal;
+    text-align: center;
+}
+
+h5{
+    color: rgb(255, 230, 0);
+    font-weight: normal;
+    text-align: center;
+}
+
+.estrelas ion-icon{
+    color: rgb(255, 81, 0);
+}
+.estrelas{
+    text-align: center;
+}
+
+.whatsapp{
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 20px; /* Distância da parte inferior */
+    right: 20px; /* Distância da lateral direita */
+    width: 60px; /* Largura do botão */
+    height: 60px; /* Altura do botão */
+    background-color: #25d366; /* Cor de fundo (verde WhatsApp) */
+    border-radius: 50%; /* Deixa o botão circular */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    display: flex; /* Centraliza o ícone */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-decoration: none; /* Remove sublinhado do link */
+    transition: transform 0.3s ease; /* Animação no hover */
+}
+
+.whatsapp:hover{
+    transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+
+.whatsapp img {
+    width: 40px; /* Tamanho do ícone dentro do botão */
+    height: 40px;
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    padding: 10px 0;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+  }
+
+  /* Estilo da seta */
+  .seta {
+    color: rgb(30, 255, 0);
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .seta:hover {
+    opacity: 0.7;
+  }
