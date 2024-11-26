@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,125 +8,170 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-<header class="topo">
-    <img src="logofabianosite.jpg" alt="logo" class="logo">
-</header>
-<!--BANNER-->  
+
+<!--BARRA DE CIMA-->
+    <header class="topo">
+        <img src="logofabianosite.jpg" alt="logo" class="logo">
+        <button class="cart-button" onclick="openCartModal()">
+            <ion-icon name="cart"></ion-icon>
+            <span id="cartCounter">0</span>
+        </button>
+    </header>
+<!--BARRA DE CIMA-->
+
+<!--MODAL CARRINHO-->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close-modal" onclick="closeCartModal()">&times;</span>
+            <h3>Seu Carrinho</h3>
+            <ul id="cartItems"></ul>
+            <div>
+                <label for="customerName">Nome:</label>
+                <input type="text" id="customerName" placeholder="Seu nome">
+            </div>
+            <div>
+                <label for="paymentMethod">Forma de Pagamento:</label>
+                <select id="paymentMethod">
+                    <option value="Pix">Pix</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+                <h2>* desconto entrará ao finalizar * </h2>
+            </div>
+            <p id="totalPrice"></p>
+            <div class="modal-buttons">
+                <button onclick="sendOrder()">Enviar Pedido</button>
+                <button onclick="clearCart()">Limpar Carrinho</button>
+            </div>
+        </div>
+    </div>
+<!--MODAL CARRINHO-->
+
+
+<!--BANNER-->
     <div class="banner">
         <img src="bannerpromocao.jpg" alt="Banner">
     </div>
-<!--BANNER--> 
+<!--BANNER-->
 
 <!--BARRA DE PESQUISA-->
-<div class="barra-de-pesquisa">
-    <input type="text" id="pesquisa" placeholder="BUSQUE O CORAL" autocomplete="off">
-    <i class="fas fa-search"></i> <!-- Ícone da lupa -->
-</div>
-<!--BARRA DE PESQUISA-->
-
-<!--PRODUTOS-->
-<div class="corpo-produtos">
-    <h2 class="texto">Zoanthus e Palythoas</h2>
-    <div class="linha">
-
-
-        <div class="coluna">
-            <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
-            <h4>Zoanthus Oompa Lompa</h4>
-            <div class="estrelas">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-            </div>
-            <p>R$ 35,00</p>
-        </div>
-
-        <div class="coluna">
-            <img src="palythoas/palythoa-gmk.jpg" alt="coral1">
-            <h5>Palythoa Grand Master Krakatoa (GMK)</h5>
-            <div class="estrelas">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-            </div>
-            <p>R$ 240,00</p>
-        </div>
-
-        <div class="coluna">
-            <img src="palythoas/palythoa-pandora.png" alt="coral1">
-            <h4>Palythoa Pandora</h4>
-            <div class="estrelas">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-            </div>
-            <p>R$ 60,00</p>
-        </div>
-
-        <div class="coluna">
-            <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
-            <h4>Zoanthus Oompa Lompa</h4>
-            <div class="estrelas">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-            </div>
-            <p>R$ 35,00</p>
-        </div>
-
-        <div class="coluna">
-            <img src="palythoas/palythoa-mind-blowing.png" alt="coral1">
-            <h4>Palythoa Mind Blowing</h4>
-            <div class="estrelas">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-            </div>
-            <p>R$ 30,00</p>
-        </div>
-
-        <div class="coluna">
-            <img src="palythoas/palythoa-pandora.png" alt="coral1">
-            <h4>Palythoa Pandora</h4>
-            <div class="estrelas">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-            </div>
-            <p>R$ 60,00</p>
-        </div>
-
-    
+    <div class="barra-de-pesquisa">
+        <input type="text" id="pesquisa" placeholder="BUSQUE O CORAL" autocomplete="off">
+        <i class="fas fa-search"></i> <!-- Ícone da lupa -->
     </div>
-</div>
+<!--BARRA DE PESQUISA-->
 
 <!--PRODUTOS-->
+    <div class="corpo-produtos">
+        <h2 class="texto">Zoanthus e Palythoas</h2>
+        <h1>* consulte informações no whatsapp * </h1>
+        <div class="linha">
+
+            <div class="coluna">
+                <h6>Peça</h6>
+                <div class="image-container">
+                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                </div>
+                <h4>Zoanthus Oompa Lompa</h4>
+                <div class="estrelas">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>R$ 35,00</p>
+            </div>
+
+            <div class="coluna">
+                <h6>Peça</h6>
+                <div class="image-container">
+                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                </div>
+                <h4>Zoanthus Oompa Lompa</h4>
+                <div class="estrelas">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>R$ 35,00</p>
+            </div>
+
+            <div class="coluna">
+                <h6>Peça</h6>
+                <div class="image-container">
+                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                </div>
+                <h4>Zoanthus Oompa Lompa</h4>
+                <div class="estrelas">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>R$ 35,00</p>
+            </div>
+
+            <div class="coluna">
+                <h6>Peça</h6>
+                <div class="image-container">
+                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                </div>
+                <h4>Zoanthus Oompa Lompa</h4>
+                <div class="estrelas">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>R$ 35,00</p>
+            </div>
+
+            <div class="coluna">
+                <h6>Peça</h6>
+                <div class="image-container">
+                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                </div>
+                <h4>Zoanthus Oompa Lompa</h4>
+                <div class="estrelas">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>R$ 35,00</p>
+            </div>
+
+        </div>
+    </div>
+ <!--PRODUTOS-->
 
 <!--WHATSAPP-->
-    <a href="https://wa.me/558588981551?text=Oi,%20vim%20pelo%20catálogo" class="whatsapp" target="_blank" rel="noopener">
+    <a href="https://wa.me/558588981551?text=Oi,%20vim%20pelo%20catálogo" class="whatsapp" target="_blank"
+        rel="noopener">
         <img src="whatsapplogo.png" alt="WhatsApp">
     </a>
 <!--WHATSAPP-->
 
-<footer>
-    <span class="seta" onclick="scrollToTop()">^</span>
-</footer>
+    <footer>
+        <span class="seta" onclick="scrollToTop()">︿</span>
+    </footer>
+    <audio id="popupSound" src="pop-268648.mp3" preload="auto"></audio>
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

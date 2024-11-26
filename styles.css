@@ -11,12 +11,20 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.topo{
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.topo {
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        position: fixed; /* Fixa o cabeçalho no topo da página */
+        top: 0; /* Garante que o cabeçalho fique no topo da tela */
+        width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
+        z-index: 1000; /* Garante que o cabeçalho ficará acima de outros elementos */
 }
+    
+
 
 .logo{
     height: 100px;
@@ -24,6 +32,7 @@ body{
 
 .banner{
     display: flex;
+    margin-top: 110px;
 }
 
 .banner img{
@@ -80,7 +89,7 @@ input::placeholder {
     color: white;
     text-align: center;
     line-height: 60px;
-    margin: 0 auto 80px;
+    margin: 0 auto 20px;
     position: relative;
 }
 
@@ -96,6 +105,15 @@ input::placeholder {
     transform: translateX(-50%);
 }
 
+h1{
+    color: white;
+    text-align: center;
+    text-align: center;
+    font-weight: normal;
+    font-size: 15px;
+    margin-bottom: 90px;
+}
+
 .coluna{
     flex-basis: 25%;
     min-width: 200px;
@@ -109,6 +127,146 @@ input::placeholder {
     object-position: center;
     border-radius: 10px;
 }
+
+.image-container {
+    position: relative; /* Necessário para posicionar o botão relativo à imagem */
+    display: inline-block; /* Ajusta o comportamento do contêiner */
+}
+
+.image-container img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.add-to-cart {
+    position: absolute;
+    bottom: 10px; /* Distância da parte inferior da imagem */
+    right: 5px; /* Distância do lado direito da imagem */
+    background-color:  rgb(30, 255, 0);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cart-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+.cart-button:hover {
+    background-color: rgb(30, 255, 0);
+}
+
+.cart-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cart-modal-content {
+    background-color: rgb(0, 0, 0);
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    position: relative;
+    color: rgb(255, 255, 255);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    
+}
+
+.modal-buttons button {
+    padding: 15px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+.modal-buttons button:first-child {
+    background-color: green;
+    color: white;
+}
+
+.modal-buttons button:last-child {
+    background-color: red;
+    color: white;
+}
+
+
+
+#cartItems {
+    list-style: none;
+    padding: 0;
+    
+}
+
+#cartItems li {
+    margin-bottom: 10px;
+    color: gray
+}
+
+#totalPrice {
+    font-weight: bold;
+    margin-top: 10px;
+    color: rgb(255, 255, 255);
+}
+
+#cartCounter {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 3px 6px;
+    margin-left: 1px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+}
+
+
+.add-to-cart:hover {
+    background-color: #28a745;
+    transform: scale(1.1); /* Aumenta ligeiramente ao passar o mouse */
+}
+
 
 p{
     color: white;
@@ -127,6 +285,14 @@ h5{
     color: rgb(255, 230, 0);
     font-weight: normal;
     text-align: center;
+}
+
+h2{
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 10px;
 }
 
 .estrelas ion-icon{
@@ -180,4 +346,10 @@ footer {
 
   .seta:hover {
     opacity: 0.7;
+  }
+
+
+  h6{
+    color: white;
+    font-size: 15px;
   }
