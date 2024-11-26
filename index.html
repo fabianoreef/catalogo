@@ -21,32 +21,32 @@
     </header>
 <!--BARRA DE CIMA-->
 
-<!--MODAL CARRINHO-->
-    <div id="cartModal" class="cart-modal">
-        <div class="cart-modal-content">
-            <span class="close-modal" onclick="closeCartModal()">&times;</span>
-            <h3>Seu Carrinho</h3>
-            <ul id="cartItems"></ul>
-            <div>
-                <label for="customerName">Nome:</label>
-                <input class="barra" type="text" id="customerName" placeholder="Seu nome">
-            </div>
-            <div>
-                <label for="paymentMethod">Forma de Pagamento:</label>
-                <select id="paymentMethod">
-                    <option value="Pix">Pix</option>
-                    <option value="Dinheiro">Dinheiro</option>
-                </select>
-                <h2>* desconto entrará ao finalizar * </h2>
-            </div>
-            <p id="totalPrice"></p>
-            <div class="modal-buttons">
-                <button onclick="sendOrder()">Enviar</button>
-                <button onclick="clearCart()">Limpar</button>
-            </div>
+<!-- MODAL CARRINHO -->
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close-modal" onclick="closeCartModal()">&times;</span>
+        <h3 class="cart-title">Seu Carrinho</h3>
+        <ul id="cartItems" class="cart-items-list"></ul>
+        <div class="customer-info">
+            <label for="customerName">Nome:</label>
+            <input class="input-field" type="text" id="customerName" placeholder="Seu nome">
+        </div>
+        <div class="payment-info">
+            <label for="paymentMethod">Forma de Pagamento:</label>
+            <select id="paymentMethod" class="input-field">
+                <option value="Pix">Pix</option>
+                <option value="Dinheiro">Dinheiro</option>
+            </select>
+            <p class="discount-note">* Desconto será aplicado ao finalizar *</p>
+        </div>
+        <p id="totalPrice" class="total-price"></p>
+        <div class="modal-buttons">
+            <button class="button primary" onclick="sendOrder()">Finalizar Compra</button>
+            <button class="button secondary" onclick="clearCart()">Limpar Carrinho</button>
         </div>
     </div>
-<!--MODAL CARRINHO-->
+</div>
+<!-- MODAL CARRINHO -->
 
 
 <!--BANNER-->
@@ -72,7 +72,7 @@
                 <h6>Peça</h6>
                 <div class="image-container">
                     <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
-                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Loompa', 35)">+</button>
                 </div>
                 <h4>Zoanthus Oompa Lompa</h4>
                 <div class="estrelas">
@@ -86,12 +86,12 @@
             </div>
 
             <div class="coluna">
-                <h6>Peça</h6>
+                <h6>Pólipo</h6>
                 <div class="image-container">
-                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
-                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                    <img src="zoanthus/zoanthus-gorilla.jpg" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Gorilla', 35)">+</button>
                 </div>
-                <h4>Zoanthus Oompa Lompa</h4>
+                <h4>Zoanthus Gorilla</h4>
                 <div class="estrelas">
                     <ion-icon name="star"></ion-icon>
                     <ion-icon name="star"></ion-icon>
@@ -105,10 +105,29 @@
             <div class="coluna">
                 <h6>Peça</h6>
                 <div class="image-container">
-                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
-                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                    <img src="zoanthus/zoanthus-red-hornet.jpg" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Zoanthus Red Hornet', 35)">+</button>
                 </div>
-                <h4>Zoanthus Oompa Lompa</h4>
+                <h4>Zoanthus Red Hornet</h4>
+                <div class="estrelas">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                </div>
+                <p>R$ 35,00</p>
+            </div>
+
+            
+
+            <div class="coluna">
+                <h6>Peça</h6>
+                <div class="image-container">
+                    <img src="palythoas/palythoa-mind-blowing.png" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Palythoa Mind Blowing', 35)">+</button>
+                </div>
+                <h4>Palythoa Mind Blowing</h4>
                 <div class="estrelas">
                     <ion-icon name="star"></ion-icon>
                     <ion-icon name="star"></ion-icon>
@@ -122,10 +141,10 @@
             <div class="coluna">
                 <h6>Peça</h6>
                 <div class="image-container">
-                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
-                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
+                    <img src="palythoas/palythoa-pandora.png" alt="coral1">
+                    <button class="add-to-cart" onclick="addToCart('Palythoa Pandora', 35)">+</button>
                 </div>
-                <h4>Zoanthus Oompa Lompa</h4>
+                <h4>Palythoa Pandora</h4>
                 <div class="estrelas">
                     <ion-icon name="star"></ion-icon>
                     <ion-icon name="star"></ion-icon>
@@ -136,23 +155,7 @@
                 <p>R$ 35,00</p>
             </div>
 
-            <div class="coluna">
-                <h6>Peça</h6>
-                <div class="image-container">
-                    <img src="zoanthus/zoanthus-oompa-loompa.jpg" alt="coral1">
-                    <button class="add-to-cart" onclick="addToCart('Zoanthus Oompa Lompa', 35)">+</button>
-                </div>
-                <h4>Zoanthus Oompa Lompa</h4>
-                <div class="estrelas">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                </div>
-                <p>R$ 35,00</p>
-            </div>
-
+        
         </div>
     </div>
  <!--PRODUTOS-->
