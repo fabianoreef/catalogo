@@ -1,14 +1,50 @@
 // Inicializar o carrinho
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// Função para rolar até o topo da página
+function scrollToTop() {
+  window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // A rolagem será suave
+  });
+}
+
+// Função para remover acentos e normalizar texto
+function removerAcentos(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+// Referenciar elementos
+const barraDePesquisa = document.getElementById('pesquisa');
+const produtos = document.querySelectorAll('.coluna');
+
+// Adicionar evento de entrada
+barraDePesquisa.addEventListener('input', () => {
+  const termo = removerAcentos(barraDePesquisa.value);
+
+  produtos.forEach(produto => {
+      // Obter texto de h4 e h5 dentro de cada produto
+      const nomeProduto = removerAcentos(
+          [...produto.querySelectorAll('h4, h5')]
+              .map(elemento => elemento.innerText)
+              .join(' ') // Combina o texto de h4 e h5, se ambos existirem
+      );
+
+      // Verificar se o nome do produto inclui o termo pesquisado
+      if (nomeProduto.includes(termo)) {
+          produto.style.display = 'block'; // Exibe o produto
+      } else {
+          produto.style.display = 'none'; // Oculta o produto
+      }
+    });
+});
+
 // Função para limpar o carrinho
 function clearCart() {
-  if (confirm('Tem certeza que deseja limpar o carrinho?')) {
-      cart = []; // Esvazia o carrinho
-      localStorage.setItem('cart', JSON.stringify(cart)); // Atualiza o localStorage
-      updateCartModal(); // Atualiza o modal para refletir o estado vazio
-      updateCartCounter(); // Atualiza o contador do carrinho
-  }
+  cart = []; // Esvazia o carrinho
+  localStorage.setItem('cart', JSON.stringify(cart)); // Atualiza o localStorage
+  updateCartModal(); // Atualiza o modal para refletir o estado vazio
+  updateCartCounter(); // Atualiza o contador do carrinho
 }
 
 // Função para atualizar o modal do carrinho
@@ -70,10 +106,12 @@ function addToCart(product, price) {
 }
 
 // Função para abrir o modal do carrinho
+// Função para abrir o modal do carrinho
 function openCartModal() {
   const modal = document.getElementById('cartModal');
-  modal.style.display = 'block';
-  displayCartItems();
+  modal.style.display = 'flex'; // Altere para 'flex' para abrir o modal
+  displayCartItems(); // Exibe os itens do carrinho no modal
+
 
   // Adicionar evento para fechar o modal ao clicar fora dele
   window.onclick = function(event) {
