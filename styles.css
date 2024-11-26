@@ -212,12 +212,16 @@ h1{
 }
 
 .modal-buttons button {
-    padding: 15px 8px;
-    font-size: 12px;
+    padding: 15px 13px;
+    font-size: 9px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     
+}
+
+.barra{
+    width: 140px;
 }
 
 .modal-buttons button:first-child {
